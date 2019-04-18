@@ -3,13 +3,11 @@ import './Game.css';
 import Enemy from './Enemy/Enemy';
 import Player from './Player/Player';
 import Eggs from './Eggs/Eggs';
-import { Button } from 'reactstrap';
-
 
 const Game = () => {
   const [player, setPlayer] = useState('');
   const [enemy, setEnemy] = useState('');
-  const [eggs, setEggs] = useState('');
+  const [eggs, setEggs] = useState([]);
 
 
   useEffect(() => {
@@ -32,17 +30,16 @@ const Game = () => {
         return response.json()
       })
       .then(data => {
-        console.log(data)
         setEggs(data)
-      })
-      // console.log(eggs[0].name)
+      })    
   }, []);
+  
 
   return (
     <div>
       <div>player{player.name}</div>
       <div>enemy{enemy.name}</div>
-      <div>ehggobefvj</div>
+      {console.log(eggs)}
       <Enemy 
         enemy={enemy}
         player={player}
