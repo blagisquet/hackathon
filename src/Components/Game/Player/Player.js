@@ -1,7 +1,7 @@
 import React from 'react';
 import { Media } from 'reactstrap';
 
-const Player = () => {
+const Player = (props) => {
   return (
     <Media className="border">
       <Media left href="#">
@@ -9,7 +9,7 @@ const Player = () => {
       </Media>
       <Media body>
         <Media heading>
-            Nom du joueur 
+            {props.player.name}
         </Media>
        PV/100
       </Media>

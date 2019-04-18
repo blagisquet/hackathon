@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Enemy.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { Media } from 'reactstrap';
 
-const Enemy = () => {
+const Enemy = (props) => {
+
 	return (
 		<div>
 			<Media className="border">
 				<Media body>
 					<Media heading>
-						Nom du joueur
+						{props.enemy.name}
         </Media>
 					PV/100
       </Media>
