@@ -8,7 +8,7 @@ const Eggs = () => {
 		<div className="Container">
             <div className="row">
             <div className="eggs col-lg-6">
-            <p>Oeufs</p>
+            <p>Eggs</p>
             </div>
             <div className="attack col-lg-6">
             <p>Attack</p>

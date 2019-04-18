@@ -4,3 +4,7 @@
     padding: 10 10;
     margin-top: 150px;
 }
+
+.dark .Media{
+    color: black;
+}

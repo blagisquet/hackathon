@@ -6,8 +6,8 @@ import Eggs from './Eggs/Eggs';
 
 
 const Game = () => {
-    return (
-      <div>
+    return (  
+      <div className="gameArea">  
         <Enemy />
         <Player />
         <Eggs />

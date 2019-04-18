@@ -6,13 +6,15 @@ import { Media } from 'reactstrap';
 const Enemy = () => {
 	return (
 		<div>
-			<Media className="border">
-				<Media body>
-					<Media heading>
-						Nom du joueur
+			<Media className="border large">
+				<Media body className="dark border">
+					<Media heading className="dark" >
+						Player Name
         </Media>
-					PV/100
-      </Media>
+					<Media>
+						HP/100
+					</Media>
+				</Media>
 				<Media left href="#">
 					<Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
 				</Media>
