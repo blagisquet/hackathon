@@ -1,12 +1,15 @@
 .eggs {
-    border: 2px solid;
+    border: 2px solid black;
     border-radius: 4px;
+    margin-top: 20px;
+    width: 50%;
 }
 
 .attack {
-    border: 2px solid;
+    border: 2px solid black;
     border-radius: 4px;
-
+    margin-top: 20px;
+    width: 50%;
 }
 
 p {

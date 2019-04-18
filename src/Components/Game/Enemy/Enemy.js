@@ -6,9 +6,9 @@ import { Media } from 'reactstrap';
 const Enemy = () => {
 	return (
 		<div>
-			<Media className="border large">
-				<Media body className="dark border">
-					<Media heading className="dark" >
+			<Media className="large">
+				<Media body className="enemy2">
+					<Media heading >
 						Player Name
         </Media>
 					<Media>
@@ -19,7 +19,7 @@ const Enemy = () => {
 					<Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
 				</Media>
 			</Media>
-			<h2 className="versus">Versus</h2>
+			<h2 className="versus">VS</h2>
 		</div>
 	);
 }

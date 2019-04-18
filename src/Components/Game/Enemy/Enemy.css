@@ -1,20 +1,27 @@
-.border {
-    border: 2px solid black;
-    border-radius: 4px;
-    padding: 10px 10px;
-}
-
-.large {
+.enemy {
     border: 8px solid black;
     border-radius: 6px;
-    padding: 20px 20px;
+    padding: 10px 10px;
+    color: black;
+    margin-top: 170px;
+}
+
+.enemy2 {
+    border: 8px solid black;
+    border-radius: 6px;
+    padding: 10px 10px;
+    color: black;
+}
+.large {
+    
+    padding: 10px 10px;
+    width: 50rem;
+    height: 20rem;
 }
 
 .versus {
     font-size: 40px;
     color: black;
-}
-
-.dark {
-    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
