@@ -1,17 +1,26 @@
 import React from 'react';
 import { Media } from 'reactstrap';
+import './Player.css';
+import { Button } from 'reactstrap';
 
 const Player = (props) => {
+    const life = 100;
+   /*
+    let lifeenemy = props.enemy.life;
+    const handleButton = () => {
+
+        lifeenemy = life - props.enemy.value;
+    };*/
   return (
     <Media className="border">
       <Media left href="#">
-        <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+        <img src={props.player.image} alt="playerImage" className="charImage" />
       </Media>
       <Media body>
         <Media heading>
             {props.player.name}
         </Media>
-       PV/100
+          {life}/100
       </Media>
     </Media>
   );
