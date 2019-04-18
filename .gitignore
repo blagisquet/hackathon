@@ -4,10 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/vendor/
 # testing
 /coverage
-
+composer.json
+composer.lock
 # production
 /build
 

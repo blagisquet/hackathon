@@ -1,21 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Eggs.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import { Media } from 'reactstrap';
 
-const Eggs = () => {
-	return (
-		<div className="Container">
-            <div className="row w-100">
-                <div className="eggs col-lg-6">
-                    <p>Eggs</p>
-                </div>
-                <div className="attack col-lg-6">
-                    <p>Attack</p>
-                </div>
-            </div>
-		</div>
-	);
+const Eggs = (props) => {
+  const eggs = props.eggs;
+
+  return (
+    <div className="Container">
+      <div className="row">
+        <div className="eggs col-lg-6">
+          <p>Oeufs</p>
+          {eggs.map((egg, index) => {
+            return (
+              <div key={index}><img src={egg.image} />
+                <p>{egg.name}</p>
+                <p>Valeur : {egg.value}</p>
+              </div>
+            );
+          })}
+
+        </div>
+        <div className="attack col-lg-6">
+          <p>Attack</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Eggs;

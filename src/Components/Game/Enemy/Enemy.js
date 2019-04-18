@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Enemy.css';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { Media } from 'reactstrap';
+import { Button } from 'reactstrap';
 
-const Enemy = () => {
+
+const Enemy = (props) => {
+	const life = 100;
 	return (
 		<div>
-			<Media className="large">
-				<Media body className="enemy2">
-					<Media heading >
-						Player Name
+			<Media className="border">
+				<Media body>
+					<Media heading>
+						{props.enemy.name}
         </Media>
-					<Media>
-						HP/100
-					</Media>
-				</Media>
+					{life}/100
+      </Media>
 				<Media left href="#">
-					<Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
+					<img src={props.enemy.image} alt="charImage"  />
 				</Media>
 			</Media>
 			<h2 className="versus">VS</h2>

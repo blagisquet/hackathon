@@ -1,25 +1,29 @@
 import React from 'react';
 import { Media } from 'reactstrap';
 import './Player.css';
+import { Button } from 'reactstrap';
 
-const Player = () => {
-	return (
-		<div className="large">
-			<Media>
-				<Media left href="#">
-					<Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
-				</Media>
-				<Media body className="enemy">
-					<Media heading>
-						Player Name
-       		</Media>
-					<Media>
-						HP/100
-     	 		</Media>
-				</Media>
-			</Media>
-		</div>
-	);
+const Player = (props) => {
+    const life = 100;
+   /*
+    let lifeenemy = props.enemy.life;
+    const handleButton = () => {
+
+        lifeenemy = life - props.enemy.value;
+    };*/
+  return (
+    <Media className="border">
+      <Media left href="#">
+        <img src={props.player.image} alt="playerImage" className="charImage" />
+      </Media>
+      <Media body>
+        <Media heading>
+            {props.player.name}
+        </Media>
+          {life}/100
+      </Media>
+    </Media>
+  );
 };
 
 export default Player;
