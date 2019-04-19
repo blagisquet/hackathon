@@ -31,3 +31,12 @@
     max-height: 300px !important;
     border-radius: 4px;
 }
+
+.textMargin {
+  
+    text-align: left;
+}
+
+.redColor {
+    color: red;
+}

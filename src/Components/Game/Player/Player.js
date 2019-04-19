@@ -17,8 +17,8 @@ const Player = (props) => {
         <img src={props.player.image} alt="playerImage" className="charImage" />
       </Media>
 		
-      <Media body>
-        <Media heading>
+      <Media body className="textMarg">
+        <Media heading >
             {props.player.name}
         </Media>
           {life}/100

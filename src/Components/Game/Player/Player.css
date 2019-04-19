@@ -14,3 +14,8 @@
     max-height: 300px;
     border-radius: 4px;
 }
+
+.textMarg {
+    margin-top: 200px;
+    text-align: right;
+}

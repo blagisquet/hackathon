@@ -11,7 +11,7 @@ const Enemy = (props) => {
 		<div>
 			<Media className="border">
 								
-				<Media body>
+				<Media body className="textMargin">
 				<Media heading>
 						{props.enemy.name}
         	</Media>
