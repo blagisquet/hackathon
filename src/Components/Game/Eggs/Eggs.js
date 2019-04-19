@@ -27,6 +27,9 @@ class Eggs extends Component {
     } else {
       this.state.lifeEnemy += foo[index].value;
     }
+    if ( this.state.lifePlayer >100){
+    	this.state.lifePlayer = 100;
+	}
     Client.sendLifePlayer(this.state.lifePlayer);
     Client.sendLifeEnemy(this.state.lifeEnemy);
 
