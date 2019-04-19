@@ -64,30 +64,30 @@ class Eggs extends Component {
 	render() {
 		return (
 			<div className="Container">
-				{this.state.gameOver ?
-					<div>GAME OVER</div>
-					:
-					<div className="row">
-						<div className="eggs col-lg-9">
-							<p>Eggs</p>
-							<Scrollbars style={{width: 730, height: 200}}>
-								{this.state.eggs.map((egg, index) => {
-									return (
-										<div className="eggsCss" onClick={() => this.removeEgg(index)}>
-											<img src={egg.image}/>
-											<p>{egg.name}</p>
-											<p className="redColor">Valeur : {egg.value}</p>
-										</div>
-									);
-								})}
-							</Scrollbars>
-						</div>
-						<div className="attack col-lg-3">
-							<Button onClick={this.handleButton} className="button" color="danger">Wanna play
-								bruh???</Button>
-						</div>
-					</div>
-				}
+                {this.state.gameOver ?
+                    <div>GAME OVER</div>
+                    :
+                    <div className="row">
+                        <div className="eggs col-lg-9">
+                            <p>Eggs</p>
+                            <Scrollbars style={{width: 730, height: 200}}>
+                                {this.state.eggs.map((egg, index) => {
+                                    return (
+                                        <div className="eggsCss" onClick={() => this.removeEgg(index)}>
+                                            <img src={egg.image}/>
+                                            <p>{egg.name}</p>
+                                            <p className="redColor">Valeur : {egg.value}</p>
+                                        </div>
+                                    );
+                                })}
+                            </Scrollbars>
+                        </div>
+                        <div className="attack col-lg-3">
+                            <Button onClick={this.handleButton} className="button" color="danger">Wanna play
+                                bruh???</Button>
+                        </div>
+                    </div>
+                }
 			</div>
 		);
 	}
