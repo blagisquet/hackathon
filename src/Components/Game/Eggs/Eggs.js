@@ -1,30 +1,59 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Eggs.css';
 
-const Eggs = (props) => {
-  const eggs = props.eggs;
+class Eggs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      eggs: props.eggs,
+    };
+  }
 
-  return (
-    <div className="Container">
-      <div className="row">
-        <div className="eggs col-lg-6">
-          <p>Oeufs</p>
-          {eggs.map((egg, index) => {
-            return (
-              <div key={index}><img src={egg.image} />
-                <p>{egg.name}</p>
-                <p>Valeur : {egg.value}</p>
-              </div>
-            );
-          })}
+  removeEgg = (index) => {
+    let foo = this.state.eggs;
+    foo.splice(index, 1);
+    console.log(foo)
+    this.setState({ eggs: foo });
+  }
 
-        </div>
-        <div className="attack col-lg-6">
-          <p>Attack</p>
+  render() {
+    return (
+      <div className="Container">
+        <div className="row">
+          <div className="eggs col-lg-6">
+            <p>Oeufs</p>
+            {this.state.eggs.map((egg, index) => {
+              return (
+                <div onClick={() => this.removeEgg(index)}>
+                  <img src={egg.image} />
+                  <p>{egg.name}</p>
+                  <p>Valeur : {egg.value}</p>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="attack col-lg-6">
+            <p>Attack</p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Eggs;
+
+
+// const Eggs = ({ fifou }) => {
+//   const [eggs, setEggs] = useState([]);
+//   useEffect(() => {
+//     setEggs(fifou)
+//   }, []);
+
+//   const removeEgg = (index) => {
+//     let foo = eggs;
+//     foo.splice(index, 1);
+//     console.log(foo)
+//     setEggs(foo);
+//   }

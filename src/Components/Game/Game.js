@@ -34,10 +34,8 @@ const Game = () => {
       })    
   }, []);
   
-
   return (
     <div className='gameArea'>
-      {console.log(eggs)}
       <Enemy 
         enemy={enemy}
         player={player}
@@ -46,7 +44,9 @@ const Game = () => {
         player={player} 
         enemy={enemy}
         />
-      <Eggs eggs={eggs} />
+        {eggs.length &&
+          <Eggs eggs={eggs} />
+        }
     </div>
   );
 }
