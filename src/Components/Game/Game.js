@@ -44,8 +44,12 @@ const Game = () => {
         player={player} 
         enemy={enemy}
         />
-        {eggs.length &&
-          <Eggs eggs={eggs} />
+        {eggs.length && player.value && enemy.value &&
+          <Eggs
+              eggs={eggs}
+              valuePlayer={player.value}
+              valueEnemy={enemy.value}
+          />
         }
     </div>
   );
