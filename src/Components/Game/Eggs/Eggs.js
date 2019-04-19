@@ -14,7 +14,7 @@ class Eggs extends Component {
 			valueEnemy: props.valueEnemy,
 			lifeEnemy : 100,
 			lifePlayer : 100,
-
+			gameOver : false,
 	};
 
 	}
@@ -52,36 +52,42 @@ class Eggs extends Component {
 			let newlifePlayer = this.state.lifePlayer - (Math.floor(Math.random() * this.state.valueEnemy) + 1);
 			if (newlifePlayer <= 0){
 				newlifePlayer = 0;
+				this.setState({gameOver :true})
 			}
 			this.setState({lifePlayer : newlifePlayer});
 			Client.sendLifePlayer(newlifePlayer);
 			// once the state is changed, start enemy turn
-		}, 3000);
+		}, 1000);
 
 	}
 
 	render() {
 		return (
 			<div className="Container">
-				<div className="row">
-					<div className="eggs col-lg-9">
-						<p>Eggs</p>
-						<Scrollbars style={{ width: 730, height: 200 }}>
-							{this.state.eggs.map((egg, index) => {
-								return (
-									<div className="eggsCss" onClick={() => this.removeEgg(index)}>
-										<img src={egg.image} />
-										<p>{egg.name}</p>
-										<p className="redColor">Valeur : {egg.value}</p>
-									</div>
-								);
-							})}
-						</Scrollbars>
+				{this.state.gameOver ?
+					<div>GAME OVER</div>
+					:
+					<div className="row">
+						<div className="eggs col-lg-9">
+							<p>Eggs</p>
+							<Scrollbars style={{width: 730, height: 200}}>
+								{this.state.eggs.map((egg, index) => {
+									return (
+										<div className="eggsCss" onClick={() => this.removeEgg(index)}>
+											<img src={egg.image}/>
+											<p>{egg.name}</p>
+											<p className="redColor">Valeur : {egg.value}</p>
+										</div>
+									);
+								})}
+							</Scrollbars>
+						</div>
+						<div className="attack col-lg-3">
+							<Button onClick={this.handleButton} className="button" color="danger">Wanna play
+								bruh???</Button>
+						</div>
 					</div>
-					<div className="attack col-lg-3">
-						<Button onClick={this.handleButton} className="button" color="danger">Wanna play bruh???</Button>
-					</div>
-				</div>
+				}
 			</div>
 		);
 	}
