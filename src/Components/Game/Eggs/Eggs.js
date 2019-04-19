@@ -65,8 +65,8 @@ class Eggs extends Component {
 			<div className="Container">
 				<div className="row">
 					<div className="eggs col-lg-9">
-						<p>Eggs</p>
-						<Scrollbars style={{ width: 730, height: 200 }}>
+						<h2>Eggs</h2>
+						<Scrollbars className="scrollBar" style={{ width: 730, height: 200 }}>
 							{this.state.eggs.map((egg, index) => {
 								return (
 									<div className="eggsCss" onClick={() => this.removeEgg(index)}>
