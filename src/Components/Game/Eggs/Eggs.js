@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Container } from 'react';
 import './Eggs.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './Scroll';
@@ -66,7 +66,7 @@ class Eggs extends Component {
 
   render() {
     return (
-      <div className="Container">
+      <Container fluid>
         {this.state.gameOver ?
           <div className="card-body">
             <h1 className="redColor"> GAME OVER</h1>
@@ -81,7 +81,7 @@ class Eggs extends Component {
               </div>
               : <div className="row">
                 <div className="eggs col-lg-9">
-                  <p>Eggs</p>
+                  <h2>Eggs</h2>
                   <Scrollbars style={{ width: 730, height: 200 }}>
                     {this.state.eggs.map((egg, index) => {
                       return (
@@ -95,11 +95,11 @@ class Eggs extends Component {
                   </Scrollbars>
                 </div>
                 <div className="attack col-lg-3">
-                  <Button onClick={this.handleButton} className="button" color="danger">Attack</Button>
+                  <Button onClick={this.handleButton} className="buttonOne" color="danger">Attack</Button>
                 </div>
               </div>
         }
-      </div>
+      </Container>
     );
   }
 }

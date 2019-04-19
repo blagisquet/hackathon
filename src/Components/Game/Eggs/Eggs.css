@@ -52,3 +52,8 @@ p {
     color: red;
     margin-left: 5px;
 }
+
+.buttonOne {
+  margin-top: 100px;
+  padding: 15px 30px !important;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Client } from "../../../Client";
 import './Enemy.css';
-import { Media } from 'reactstrap';
+import { Media, Progress } from 'reactstrap';
 import { Button } from 'reactstrap';
 import './PlayerBox';
 
@@ -13,12 +13,13 @@ const Enemy = (props) => {
 
 	return (
 		<div>
-			<Media className="border">
+			<Media className="border border-0">
 								
 				<Media body className="textMargin">
 				<Media heading>
 						{props.enemy.name}
         	</Media>
+          <Progress color="success" value={lifeEnemy} />
 					{lifeEnemy}/100
       	</Media>
 				<Media right href="#">
