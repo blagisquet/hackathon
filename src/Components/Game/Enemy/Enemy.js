@@ -7,11 +7,9 @@ import './PlayerBox';
 
 
 const Enemy = (props) => {
-  const life = 100;
-  const [lifeplayer, setLifeplayer] = useState('');
-  
-  Client.receivedLifeplayer(data => setLifeplayer(data));
-  console.log(lifeplayer)
+  const [lifeEnemy, setLifeEnemy] = useState(100);
+
+  Client.receivedLifeEnemy(data => setLifeEnemy(data));
 
 	return (
 		<div>
@@ -21,7 +19,7 @@ const Enemy = (props) => {
 				<Media heading>
 						{props.enemy.name}
         	</Media>
-					{life}/100
+					{lifeEnemy}/100
       	</Media>
 				<Media right href="#">
 					<img src={props.enemy.image} alt="charImage" className="charImage" />

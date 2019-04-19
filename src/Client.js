@@ -2,11 +2,18 @@ import { socket } from './Socket';
 
 export const Client = {
 
-  receivedLifeplayer(data){
+  receivedLifePlayer(data){
     socket.on('RECEIVE_LIFEPLAYER', data);
   },
-  sendLifeplayer(data){
+  sendLifePlayer(data){
     socket.emit('SEND_LIFEPLAYER', data)
+  },
+  receivedLifeEnemy(data){
+    socket.on('RECEIVE_LIFEENEMY', data);
+  },
+  sendLifeEnemy(data){
+    socket.emit('SEND_LIFEENEMY', data);
   }
+
 }
 
