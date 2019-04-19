@@ -15,6 +15,7 @@ class Eggs extends Component {
 			lifeEnemy : 100,
 			lifePlayer : 100,
 			gameOver : false,
+			gameWin : false
 	};
 
 	}
@@ -40,6 +41,8 @@ class Eggs extends Component {
 		let newlifeEnemy = this.state.lifeEnemy - (Math.floor(Math.random() * this.state.valuePlayer) + 1);
 		if (newlifeEnemy <= 0){
 			newlifeEnemy = 0;
+			this.setState({gameWin :true})
+
 		}
 		this.setState({lifeEnemy : newlifeEnemy});
 		Client.sendLifeEnemy(newlifeEnemy);
@@ -65,8 +68,14 @@ class Eggs extends Component {
 		return (
 			<div className="Container">
                 {this.state.gameOver ?
-                    <div>GAME OVER</div>
-                    :
+                    <div className="card-body">
+						<h1 className="redColor"> GAME OVER</h1>
+                    </div>
+					:	this.state.gameWin ?
+					<div className="card-body">
+							<h1 className="redColor"> WIIIIIIIINNNNNNNNN</h1>
+						</div>
+					:
                     <div className="row">
                         <div className="eggs col-lg-9">
                             <p>Eggs</p>
