@@ -66,7 +66,7 @@ class Eggs extends Component {
 
   render() {
     return (
-      <Container fluid>
+        <div>
         {this.state.gameOver ?
           <div className="card-body">
             <h1 className="redColor"> GAME OVER</h1>
@@ -99,7 +99,7 @@ class Eggs extends Component {
                 </div>
               </div>
         }
-      </Container>
+        </div>
     );
   }
 }

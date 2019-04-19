@@ -16,6 +16,7 @@ const Game = () => {
         return response.json()
       })
       .then(data => {
+        console.log(data);
         setPlayer(data)
       })
     fetch("http://192.168.8.110:8000/charRandom.php")
