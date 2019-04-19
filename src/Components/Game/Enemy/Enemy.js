@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Client } from "../../../Client";
 import './Enemy.css';
 import { Media } from 'reactstrap';
 import { Button } from 'reactstrap';
@@ -6,7 +7,12 @@ import './PlayerBox';
 
 
 const Enemy = (props) => {
-	const life = 100;
+  const life = 100;
+  const [lifeplayer, setLifeplayer] = useState('');
+  
+  Client.receivedLifeplayer(data => setLifeplayer(data));
+  console.log(lifeplayer)
+
 	return (
 		<div>
 			<Media className="border">
