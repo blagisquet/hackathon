@@ -1,33 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Eggs.css';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './Scroll';
 
-const Eggs = (props) => {
-	const eggs = props.eggs;
+class Eggs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      eggs: props.eggs,
+    };
+  }
 
-	return (
-		<div className="Container">
-			<div className="row">
-				<div className="eggs col-lg-6">
-					<p>Eggs</p>
-					{eggs.map((egg, index) => {
-						return (
-							<Scrollbars style={{ width: 300, height: 300 }}>
-							<div key={index}><img src={egg.image} />
-								<p>{egg.name}</p>
-								<p>Valeur : {egg.value}</p>
-							</div>
-							</Scrollbars>
-						);
-					})}
-				</div>
-				<div className="attack col-lg-6">
-					<p>Attack</p>
-				</div>
-			</div>
-		</div>
-	);
+  removeEgg = (index) => {
+    let foo = this.state.eggs;
+    foo.splice(index, 1);
+    console.log(foo)
+    this.setState({ eggs: foo });
+  }
+
+  render() {
+    return (
+      <div className="Container">
+        <div className="row">
+          <div className="eggs col-lg-6">
+            <p>Oeufs</p>
+            {this.state.eggs.map((egg, index) => {
+              return (
+                <div onClick={() => this.removeEgg(index)}>
+                  <img src={egg.image} />
+                  <p>{egg.name}</p>
+                  <p>Valeur : {egg.value}</p>
+                </div>
+              );
+            })}
+
+          </div>
+          <div className="attack col-lg-6">
+            <p>Attack</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Eggs;
+
