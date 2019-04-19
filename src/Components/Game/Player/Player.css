@@ -2,12 +2,15 @@
     border: 2px solid;
     border-radius: 4px;
     padding: 10 10;
-    margin-top: 150px;
+  /*  margin-top: 150px;*/
 }
 
 .dark .Media{
     color: black;
 }
+
 .charImage{
-    width: 400px;
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 4px;
 }

@@ -16,6 +16,7 @@ const Player = (props) => {
       <Media left href="#">
         <img src={props.player.image} alt="playerImage" className="charImage" />
       </Media>
+		
       <Media body>
         <Media heading>
             {props.player.name}
@@ -23,6 +24,7 @@ const Player = (props) => {
           {life}/100
       </Media>
     </Media>
+		
   );
 };
 

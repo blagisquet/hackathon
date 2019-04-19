@@ -3,6 +3,7 @@
     border-radius: 4px;
     margin-top: 20px;
     width: 50%;
+
 }
 
 .attack {
@@ -14,4 +15,10 @@
 
 p {
     color: black;
+}
+
+.eggs img {
+    width: 100%;
+    max-width: 120px;
+    max-height: 120px;
 }

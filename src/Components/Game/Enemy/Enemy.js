@@ -2,6 +2,7 @@ import React from 'react';
 import './Enemy.css';
 import { Media } from 'reactstrap';
 import { Button } from 'reactstrap';
+import './PlayerBox';
 
 
 const Enemy = (props) => {
@@ -9,14 +10,15 @@ const Enemy = (props) => {
 	return (
 		<div>
 			<Media className="border">
+								
 				<Media body>
-					<Media heading>
+				<Media heading>
 						{props.enemy.name}
-        </Media>
+        	</Media>
 					{life}/100
-      </Media>
-				<Media left href="#">
-					<img src={props.enemy.image} alt="charImage"  />
+      	</Media>
+				<Media right href="#">
+					<img src={props.enemy.image} alt="charImage" className="charImage" />
 				</Media>
 			</Media>
 			<h2 className="versus">VS</h2>

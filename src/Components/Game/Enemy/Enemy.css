@@ -3,7 +3,7 @@
     border-radius: 6px;
     padding: 10px 10px;
     color: black;
-    margin-top: 170px;
+  /*  margin-top: 20px;*/
 }
 
 .enemy2 {
@@ -27,6 +27,7 @@
 }
 
 .charImage{
-    width: 300px;
-
+    max-width: 300px;
+    max-height: 300px !important;
+    border-radius: 4px;
 }
