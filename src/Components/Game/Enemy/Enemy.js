@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import { Client } from "../../../Client";
+import React, { useState, useContext } from 'react';
+import { LifeEnemyCtx } from '../Game';
 import './Enemy.css';
 import { Media, Progress } from 'reactstrap';
-import { Button } from 'reactstrap';
 import './PlayerBox';
 
 
 const Enemy = (props) => {
-  const [lifeEnemy, setLifeEnemy] = useState(100);
-
-  Client.receivedLifeEnemy(data => setLifeEnemy(data));
+  const [lifeEnemy, setLifeEnemy] = useContext(LifeEnemyCtx);
 
 	return (
 		<div>

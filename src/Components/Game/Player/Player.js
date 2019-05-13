@@ -1,18 +1,10 @@
-import React, {useState} from 'react';
-import { Client } from "../../../Client";
+import React, { useState, useContext } from 'react';
+import { LifePlayerCtx } from '../Game';
 import { Media, Progress } from 'reactstrap';
 import './Player.css';
 
 const Player = (props) => {
-    const [lifePlayer, setLifePlayer] = useState(100);
-   /*
-    let lifeenemy = props.enemy.life;
-    const handleButton = () => {
-
-        lifeenemy = life - props.enemy.value;
-    };*/
-    Client.receivedLifePlayer(data => setLifePlayer(data));
-
+  const [lifePlayer, setLifePlayer] = useContext(LifePlayerCtx);
 
     return (
     <Media className="border border-0">

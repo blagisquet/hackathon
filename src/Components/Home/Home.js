@@ -23,7 +23,7 @@ class Home extends Component {
               controls={this.state.controls}
               playing={this.state.playing}
             />
-             <Button className="button" color="danger">Wanna play bruh???</Button>{' '}
+             <Button className="button" color="danger">Wanna play bruh???</Button>
         </div>
       );
     }

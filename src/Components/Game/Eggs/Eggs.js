@@ -1,91 +1,83 @@
-import React, { Component, Container } from 'react';
+import React, { useState, useContext } from 'react';
 import './Eggs.css';
+import { LifePlayerCtx } from '../Game';
+import { LifeEnemyCtx } from '../Game';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './Scroll';
 import { Button } from "reactstrap";
-import { Client } from "../../../Client";
 
-class Eggs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      eggs: props.eggs,
-      valuePlayer: props.valuePlayer,
-      valueEnemy: props.valueEnemy,
-      lifeEnemy: 100,
-      lifePlayer: 100,
-      gameOver: false,
-      gameWin: false,
-      waiting: false
-    };
-  }
-  removeEgg = (index) => {
-    let foo = this.state.eggs;
+const Eggs = (props) => {
+  const [eggs, setEggs] = useState(props.eggs);
+  const [lifePlayer, setLifePlayer] = useContext(LifePlayerCtx);
+  const [lifeEnemy, setLifeEnemy] = useContext(LifeEnemyCtx);
+  const [gameOver, setGameOver] = useState(false);
+  const [gameWin, setGameWin] = useState(false);
+  const [waiting, setWaiting] = useState(false);
+  const [noMoreEggs, setNoMoreEggs] = useState(false);
+
+  const removeEgg = (index) => {
+    let foo = eggs;
     console.log(foo[index].value)
     if (foo[index].value > 0) {
-      this.setState({lifePlayer: this.state.lifePlayer + foo[index].value});
+      let addEggLifePlayer = lifePlayer + foo[index].value;
+      setLifePlayer(addEggLifePlayer);
     } else {
-      this.setState({lifeEnemy : this.state.lifeEnemy + foo[index].value});
+      let addEggLifeEnemy = lifeEnemy + foo[index].value;
+      setLifeEnemy(addEggLifeEnemy);
     }
-    if ( this.state.lifePlayer >100){
-    	this.setState({lifePlayer : 100});
-	}
-    Client.sendLifePlayer(this.state.lifePlayer);
-    Client.sendLifeEnemy(this.state.lifeEnemy);
-
+    if (lifePlayer > 100) {
+      setLifePlayer(100);
+    }
     foo.splice(index, 1);
-    console.log(foo)
-    this.setState({ eggs: foo });
-
+    if (foo.length === 0) {
+      setNoMoreEggs(true);
+    }
+    setEggs(foo);
   }
 
-  handleButton = () => {
-    let newlifeEnemy = this.state.lifeEnemy - (Math.floor(Math.random() * this.state.valuePlayer) + 1);
+  const handleButton = () => {
+    let newlifeEnemy = lifeEnemy - (Math.floor(Math.random() * props.valuePlayer) + 1);
     if (newlifeEnemy <= 0) {
       newlifeEnemy = 0;
-      this.setState({ gameWin: true })
+      setGameWin(true);
     }
-    this.setState({ lifeEnemy: newlifeEnemy });
-    Client.sendLifeEnemy(newlifeEnemy);
-    this.setState({ waiting: true })
+    setLifeEnemy(newlifeEnemy);
+    setWaiting(true);
     setTimeout(() => {
       // calc next enemy attack name and damage
-      let newlifePlayer = this.state.lifePlayer - (Math.floor(Math.random() * this.state.valueEnemy) + 1);
+      let newlifePlayer = lifePlayer - (Math.floor(Math.random() * props.valueEnemy) + 1);
       if (newlifePlayer <= 0) {
         newlifePlayer = 0;
-        this.setState({ gameOver: true })
+        setGameOver(true);
       }
-      this.setState({ lifePlayer: newlifePlayer });
-      Client.sendLifePlayer(newlifePlayer);
-      this.setState({ waiting: false })
-      console.log(this.state.waiting)
+      setLifePlayer(newlifePlayer);
+      setWaiting(false);
       // once the state is changed, start enemy turn
     }, 1000);
   }
 
-
-  render() {
-    return (
-        <div>
-        {this.state.gameOver ?
+  return (
+    <div>
+      {gameOver ?
+        <div className="card-body">
+          <h1 className="redColor"> GAME OVER</h1>
+        </div>
+        : gameWin ?
           <div className="card-body">
-            <h1 className="redColor"> GAME OVER</h1>
+            <h1 className="redColor"> WIIIIIIIINNNNNNNNN</h1>
           </div>
-          : this.state.gameWin ?
+          : waiting ?
             <div className="card-body">
-              <h1 className="redColor"> WIIIIIIIINNNNNNNNN</h1>
+              <h1 className="redColor"> WAIT</h1>
             </div>
-            : this.state.waiting ?
-              <div className="card-body">
-                <h1 className="redColor"> WAIT</h1>
-              </div>
+            : noMoreEggs ? <p>No more eggs</p>
               : <div className="row">
                 <div className="eggs col-lg-9">
                   <h2>Eggs</h2>
                   <Scrollbars style={{ width: 730, height: 200 }}>
-                    {this.state.eggs.map((egg, index) => {
+                    {eggs.map((egg, index) => {
                       return (
-                        <div className="eggsCss" onClick={() => this.removeEgg(index)}>
+                        <div className="eggsCss" onClick={() => removeEgg(index)}>
                           <img src={egg.image} />
                           <p>{egg.name}</p>
                           <p className="redColor">Valeur : {egg.value}</p>
@@ -95,13 +87,12 @@ class Eggs extends Component {
                   </Scrollbars>
                 </div>
                 <div className="attack col-lg-3">
-                  <Button onClick={this.handleButton} className="buttonOne" color="danger">Attack</Button>
+                  <Button onClick={handleButton} className="buttonOne" color="danger">Attack</Button>
                 </div>
               </div>
-        }
-        </div>
-    );
-  }
+      }
+    </div>
+  );
 }
 
 export default Eggs;
