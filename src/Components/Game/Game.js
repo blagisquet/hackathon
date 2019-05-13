@@ -11,7 +11,7 @@ const Game = () => {
 
 
   useEffect(() => {
-    fetch("http://192.168.8.110:8000/charRandom.php")
+    fetch("https://nantes2.wilders.dev/hackathon/charRandom.php")
       .then(response => {
         return response.json()
       })
@@ -19,14 +19,14 @@ const Game = () => {
         console.log(data);
         setPlayer(data)
       })
-    fetch("http://192.168.8.110:8000/charRandom.php")
+    fetch("https://nantes2.wilders.dev/hackathon/charRandom.php")
       .then(response => {
         return response.json()
       })
       .then(data => {
         setEnemy(data)
       })
-    fetch("http://192.168.8.110:8000/eggRandom.php")
+    fetch("https://nantes2.wilders.dev/hackathon/eggRandom.php")
       .then(response => {
         return response.json()
       })

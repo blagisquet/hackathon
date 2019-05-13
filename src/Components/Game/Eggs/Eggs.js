@@ -23,12 +23,12 @@ class Eggs extends Component {
     let foo = this.state.eggs;
     console.log(foo[index].value)
     if (foo[index].value > 0) {
-      this.state.lifePlayer += foo[index].value;
+      this.setState({lifePlayer: this.state.lifePlayer + foo[index].value});
     } else {
-      this.state.lifeEnemy += foo[index].value;
+      this.setState({lifeEnemy : this.state.lifeEnemy + foo[index].value});
     }
     if ( this.state.lifePlayer >100){
-    	this.state.lifePlayer = 100;
+    	this.setState({lifePlayer : 100});
 	}
     Client.sendLifePlayer(this.state.lifePlayer);
     Client.sendLifeEnemy(this.state.lifeEnemy);
